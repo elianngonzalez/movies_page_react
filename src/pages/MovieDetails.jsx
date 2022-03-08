@@ -15,7 +15,7 @@ export function MovieDetails () {
     useEffect(() => {
         setIsloading(true);
 
-        get(`/movie/${movieId}`).then((data) => {
+        get(`/movie/${movieId}?&language=es`).then((data) => {
             setMovie(data);
             setIsloading(false);
         });
@@ -30,7 +30,7 @@ export function MovieDetails () {
         return null;
     }
 
-    const imagenUrl = "https://image.tmdb.org/t/p/w300" + movie.poster_path;
+    const imagenUrl = "https://image.tmdb.org/t/p/w300" + movie.poster_path ;
 
     return (
         <div className={styles.detailsContainer}>

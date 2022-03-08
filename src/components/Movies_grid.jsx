@@ -18,7 +18,8 @@ export function MoviesGrid ({ search }) {
     useEffect(() => {
         setLoading(true);
         const urlSearch = search 
-        ? `/search/movie?query=${search}&page=${Page} ` : '/discover/movie?page=' + Page;
+        ? `/search/movie?query=${search}&page=${Page}&language=es` 
+        : `/discover/movie?page=${Page}&language=es`;
 
         get(urlSearch).then(data => {
             //setMovies(prevMovies => [...prevMovies, ...data.results]);
