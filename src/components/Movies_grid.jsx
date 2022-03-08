@@ -4,6 +4,7 @@ import { get } from '../utils/httpClient';
 import { Moviecard } from './Moviecard';
 import style from './MoviesGrid.module.css';
 import { Spinner } from './Spinner';
+import InfiniteScroll from 'react-infinite-scroll-component';
 
 
 
