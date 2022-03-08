@@ -12,6 +12,7 @@ export function MoviesGrid () {
 
     const [movies, setMovies] = useState([]);
     const [Loading, setLoading] = useState(true);
+    const [Page, setPage] = useState(1);
 
     const query = useQuery();
     const search = query.get('search');
@@ -19,23 +20,27 @@ export function MoviesGrid () {
 
     useEffect(() => {
         setLoading(true);
-        const urlSearch = search ? `/search/movie?query=${search}` : '/discover/movie';
+        const urlSearch = search 
+        ? `/search/movie?query=${search}&${Page} ` : '/discover/movie?page='+Page;
 
         get(urlSearch).then(data => {
             setLoading(false);
-            setMovies(data.results);
+            //setMovies(prevMovies => [...prevMovies, ...data.results]);
+            setMovies(prevMovies => prevMovies.concat(data.results));
         });
-    }, [search]);
-
-    if (Loading) {
-        return <Spinner />;
-    }
+    }, [search, Page]);
 
 
-    return (<ul className={style.movieGrid}>
-        {movies.map( (movie) => (
-                <Moviecard key={movie.id} movie={movie} />
-        ))}
-    </ul>
+    return (
+        <InfiniteScroll dataLength={movies.length} 
+        next={()=>setPage((prevPage)=>prevPage + 1)} 
+        hasMore={true}
+        loader={<Spinner />}>
+            <ul className={style.movieGrid}>
+                {movies.map((movie) => (
+                    <Moviecard key={movie.id} movie={movie} />
+                ))}
+            </ul>
+        </InfiniteScroll>
     );}
 
