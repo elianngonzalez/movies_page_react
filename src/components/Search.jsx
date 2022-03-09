@@ -16,10 +16,15 @@ export function Search() {
 	return (
 		<div className={styles.searchContainer}>
 			<form className={styles.searchbox} onSubmit={handleSubmit} >
-				<input className={styles.inputSearch} type="text" value={search} onChange={(e) => {
+				<input className={styles.inputSearch} 
+				type="text" 
+				value={search} 
+				onChange={(e) => {
 					const value = e.target.value;
 					history.push(`/?search=${value}`);
-				}} placeholder="Search..." />
+				}}
+				arealabel="Search movies" 
+				placeholder="Search..." />
 				<FaSearch size={20} color="black" className={styles.buttonSearch} />
 			</form>
 		</div>

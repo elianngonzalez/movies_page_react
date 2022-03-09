@@ -1,0 +1,25 @@
+
+.Emptybox {
+	display: flex;
+	justify-content: center;
+	font-size: 2rem;
+	margin : 80px ;
+	padding: 80px;
+}
+
+@media screen and (max-width: 600px) {
+	.Emptybox {
+		margin : 40px ;
+		padding: 20px ;
+	}
+}
+
+
+.Emptystyle{
+	background: rgba( 0, 0, 0, 0.6 );
+	box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+	backdrop-filter: blur( 5px );
+	-webkit-backdrop-filter: blur( 5px );
+	border-radius: 10px;
+	border: 1px solid rgba( 255, 255, 255, 0.18 );
+}

@@ -4,6 +4,7 @@ import { Moviecard } from './Moviecard';
 import style from './MoviesGrid.module.css';
 import { Spinner } from './Spinner';
 import InfiniteScroll from 'react-infinite-scroll-component';
+import { Empty } from './Empty';
 
 
 
@@ -29,6 +30,10 @@ export function MoviesGrid ({ search }) {
 
         });
     }, [search, Page]);
+
+    if ( !Loading && movies.length === 0) {
+        return <Empty />;
+    }
 
 
     return (
