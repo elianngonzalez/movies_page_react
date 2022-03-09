@@ -1,5 +1,6 @@
 import { MoviesGrid } from "../components/Movies_grid";
 import { Search } from "../components/Search";
+import { useDebounce } from "../hooks/useDebauce";
 import { useQuery } from "../hooks/useQuery";
 
 export function LandingPage () {
@@ -10,9 +11,11 @@ export function LandingPage () {
     //pero tambien podria traer todos los estados(useState) del componente MoviesGrid al 
     //LandingPage y resetearlos en el, pasando el estado como props() al componente MoviesGrid
 
+    const debauncedSearch = useDebounce(search, 500);
+
     return (
         <div>
         <Search />
-        <MoviesGrid key={search} search={search} />
+        <MoviesGrid key={debauncedSearch} search={debauncedSearch} />
         </div>);
 }
