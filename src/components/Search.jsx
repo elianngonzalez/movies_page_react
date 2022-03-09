@@ -20,7 +20,7 @@ export function Search() {
 					const value = e.target.value;
 					history.push(`/?search=${value}`);
 				}} placeholder="Search..." />
-				<button className={styles.buttonSearch} type="submit"><FaSearch size={20} /></button>
+				<FaSearch size={20} color="black" className={styles.buttonSearch} />
 			</form>
 		</div>
 	)
