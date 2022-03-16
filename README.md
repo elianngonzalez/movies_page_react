@@ -1,6 +1,6 @@
-### `site` 
-[movies site](https://vigilant-golick-5f4216.netlify.app)
-
+## `site` 
+[<h2>movies site</h2>](https://vigilant-golick-5f4216.netlify.app)
+<hr>
 
 # Getting Started with Create React App
 
